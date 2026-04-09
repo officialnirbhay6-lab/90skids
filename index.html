@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>90skidsdigital | Luxury Digital Studio in Bhagalpur</title>
+  <meta
+    name="description"
+    content="90skidsdigital is a premium creative studio from Bhagalpur, Bihar offering websites, social media management, Meta marketing, influencer campaigns, shoot, edit, and 3D Blender-led storytelling."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#060816",
+            mist: "#e9f2ff",
+            sky: "#8eb8ff",
+            silver: "#d5dde8",
+            gold: "#e4c27a",
+            panel: "rgba(255,255,255,0.12)"
+          },
+          boxShadow: {
+            luxe: "0 30px 80px rgba(7, 12, 28, 0.45)",
+            glow: "0 0 40px rgba(228, 194, 122, 0.22)",
+            float: "0 20px 60px rgba(134, 174, 255, 0.18)"
+          },
+          backgroundImage: {
+            noise:
+              "radial-gradient(circle at 20% 20%, rgba(255,255,255,0.14) 0, rgba(255,255,255,0.02) 26%, transparent 42%), radial-gradient(circle at 80% 0%, rgba(125,164,255,0.28) 0, rgba(125,164,255,0) 32%), radial-gradient(circle at 50% 100%, rgba(228,194,122,0.12) 0, rgba(228,194,122,0) 30%)"
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #060816;
+      --text: rgba(255, 255, 255, 0.92);
+      --muted: rgba(228, 236, 255, 0.7);
+      --gold: #e4c27a;
+      --blue: #8eb8ff;
+    }
+
+    * { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      font-family: "Manrope", sans-serif;
+      color: var(--text);
+      background:
+        linear-gradient(180deg, rgba(6, 8, 22, 0.55), rgba(6, 8, 22, 0.98)),
+        url("./assets/new-bg.avif") center/cover fixed,
+        var(--bg);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.12), transparent 22%, transparent 70%, rgba(255,255,255,0.06)),
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,0.14), transparent 24%),
+        radial-gradient(circle at 80% 30%, rgba(142,184,255,0.2), transparent 26%),
+        radial-gradient(circle at 50% 100%, rgba(228,194,122,0.12), transparent 26%);
+      mix-blend-mode: screen;
+      opacity: 0.72;
+      z-index: 0;
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.04;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.16) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+      background-size: 4px 4px, 4px 4px;
+      z-index: 1;
+    }
+
+    .glass {
+      position: relative;
+      background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.07));
+      border: 1px solid rgba(255,255,255,0.22);
+      box-shadow:
+        inset 0 1px 1px rgba(255,255,255,0.18),
+        inset 0 -20px 40px rgba(255,255,255,0.02),
+        0 24px 70px rgba(6, 9, 24, 0.42);
+      backdrop-filter: blur(28px) saturate(160%);
+      -webkit-backdrop-filter: blur(28px) saturate(160%);
+      overflow: hidden;
+    }
+
+    .glass::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.36), transparent 22%, transparent 78%, rgba(255,255,255,0.14));
+      pointer-events: none;
+      opacity: 0.8;
+    }
+
+    .glass::after {
+      content: "";
+      position: absolute;
+      inset: auto -20% 55% -20%;
+      height: 55%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+      transform: translateX(-120%) rotate(-6deg);
+      animation: reflection 12s linear infinite;
+      pointer-events: none;
+    }
+
+    .hero-bg {
+      background:
+        linear-gradient(180deg, rgba(10, 13, 26, 0.28), rgba(10, 13, 26, 0.7)),
+        radial-gradient(circle at 50% 20%, rgba(255,255,255,0.1), transparent 25%),
+        url("./assets/new-bg.avif") center/cover no-repeat;
+    }
+
+    .hero-card, .project-card, .service-bubble, .skill-card, .social-proof, .contact-card {
+      transform-style: preserve-3d;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .hero-card .depth { transform: translateZ(36px); }
+
+    .project-card:hover, .service-bubble:hover, .skill-card:hover, .social-proof:hover, .contact-card:hover {
+      transform: translateY(-8px) scale(1.015);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.36), 0 0 45px rgba(228, 194, 122, 0.15);
+      border-color: rgba(255,255,255,0.32);
+    }
+
+    .gold-text {
+      background: linear-gradient(180deg, #fff7df 0%, #e4c27a 44%, #9b7233 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .section-number {
+      font-family: "Cormorant Garamond", serif;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.58);
+    }
+
+    .progress-track {
+      overflow: hidden;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .progress-fill {
+      width: 0;
+      background: linear-gradient(90deg, rgba(142,184,255,0.8), rgba(228,194,122,0.86));
+      box-shadow: 0 0 30px rgba(228,194,122,0.22);
+      transition: width 1.3s cubic-bezier(.2,.9,.2,1);
+    }
+
+    .particle-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .pill-button { position: relative; overflow: hidden; }
+
+    .pill-button::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 15%, rgba(255,255,255,0.25), transparent 85%);
+      transform: translateX(-130%);
+      transition: transform 0.8s ease;
+    }
+
+    .pill-button:hover::after { transform: translateX(130%); }
+
+    .floating-whatsapp { animation: float 4.6s ease-in-out infinite; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes reflection {
+      from { transform: translateX(-130%) rotate(-6deg); }
+      to { transform: translateX(130%) rotate(-6deg); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+<body class="bg-ink text-white selection:bg-white/20 selection:text-white">
+  <canvas class="particle-canvas" id="particleCanvas"></canvas>
+  <div class="noise"></div>
+  <div class="relative z-10">
+    <header class="sticky top-0 z-50 px-4 pt-4 sm:px-6 lg:px-10">
+      <nav class="glass mx-auto flex max-w-7xl items-center justify-between rounded-full px-4 py-3 sm:px-6">
+        <a href="#home" class="flex items-center gap-3">
+          <img src="./assets/logo.jpg" alt="90skidsdigital logo" class="h-11 w-11 rounded-full border border-white/20 object-cover shadow-glow" />
+          <div>
+            <p class="text-xs uppercase tracking-[0.35em] text-white/55">90skidsdigital</p>
+            <p class="gold-text text-sm font-semibold">Luxury Growth Studio</p>
+          </div>
+        </a>
+        <div class="hidden items-center gap-6 text-sm text-white/75 md:flex">
+          <a href="#about" class="transition hover:text-white">About</a>
+          <a href="#work" class="transition hover:text-white">Work</a>
+          <a href="#skills" class="transition hover:text-white">Skills</a>
+          <a href="#contact" class="transition hover:text-white">Contact</a>
+        </div>
+        <a href="https://wa.me/917717766958?text=Hi%2090skidsdigital%2C%20I%20want%20to%20discuss%20pricing%20for%20my%20brand." target="_blank" rel="noreferrer" class="pill-button rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white shadow-luxe transition hover:scale-[1.02] hover:bg-white/15">
+          WhatsApp Pricing
+        </a>
+      </nav>
+    </header>
+    <main>
+      <section id="home" class="relative min-h-screen overflow-hidden px-4 pb-20 pt-24 sm:px-6 lg:px-10">
+        <div class="hero-bg absolute inset-0 scale-[1.08]"></div>
+        <div class="absolute left-[10%] top-24 h-52 w-52 rounded-full bg-sky/20 blur-3xl"></div>
+        <div class="absolute right-[8%] top-[22%] h-56 w-56 rounded-full bg-gold/15 blur-3xl"></div>
+        <div class="absolute bottom-10 left-1/2 h-56 w-72 -translate-x-1/2 rounded-full bg-white/10 blur-3xl"></div>
+
+        <div class="relative mx-auto grid min-h-[84vh] max-w-7xl items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+          <div class="space-y-8">
+            <div class="glass inline-flex items-center gap-3 rounded-full px-4 py-2 text-xs uppercase tracking-[0.35em] text-white/70">
+              <span class="h-2 w-2 rounded-full bg-gold shadow-glow"></span>
+              Bhagalpur, Bihar - Websites - Films - Growth
+            </div>
+
+            <div class="hero-card glass rounded-[38px] p-7 sm:p-10 lg:p-12">
+              <div class="depth">
+                <div class="mb-10 flex items-start justify-between gap-5">
+                  <div>
+                    <p class="section-number text-xl sm:text-2xl">01 / HOME</p>
+                    <h1 class="mt-5 max-w-3xl text-4xl font-extrabold leading-[0.95] text-white sm:text-6xl lg:text-7xl">
+                      90skidsdigital builds
+                      <span class="gold-text">luxury digital presence</span>
+                      for brands that want attention.
+                    </h1>
+                  </div>
+                    <div class="hidden rounded-full border border-white/15 bg-white/8 px-5 py-3 text-right text-xs uppercase tracking-[0.32em] text-white/50 sm:block">
+                      Cinematic Creative Lab
+                  </div>
+                </div>
+
+                <div class="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
+                  <div>
+                    <p class="max-w-2xl text-base leading-8 text-white/76 sm:text-lg">
+                      Founder
+                      <span class="font-semibold text-white">Nirbhay Yadav</span>
+                      crafts premium websites, Shopify storefronts, social media systems, Meta marketing campaigns,
+                      influencer collaborations, documentaries, music videos, and 3D Blender-led brand experiences.
+                    </p>
+                    <div class="mt-7 flex flex-wrap gap-3">
+                      <a href="#work" class="pill-button rounded-full border border-white/15 bg-white/90 px-6 py-3 text-sm font-semibold text-slate-900 transition hover:scale-[1.03]">
+                        Explore Portfolio
+                      </a>
+                      <a href="https://wa.me/917717766958?text=Hi%20Nirbhay%2C%20I%20want%20a%20website%20and%20marketing%20plan." target="_blank" rel="noreferrer" class="pill-button rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:scale-[1.03] hover:bg-white/15">
+                        Chat on WhatsApp
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+                    <div class="rounded-[26px] border border-white/15 bg-white/8 p-5 shadow-float">
+                      <p class="text-xs uppercase tracking-[0.3em] text-white/45">Core Stack</p>
+                      <p class="mt-3 text-2xl font-bold text-white">Web + Social + Shoot + Edit + 3D Blender</p>
+                    </div>
+                    <div class="rounded-[26px] border border-white/15 bg-white/8 p-5 shadow-float">
+                      <p class="text-xs uppercase tracking-[0.3em] text-white/45">Client Signals</p>
+                      <p class="mt-3 text-lg font-semibold text-white">Trusted by salons, schools, cinema, fashion, pharma, and local growth brands</p>
+                      <p class="mt-2 text-sm text-white/65">Strong Upwork client ratings and repeat collaborations</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+            <div class="grid gap-5">
+              <div class="glass hero-card rounded-[34px] p-5 sm:p-6">
+                <div class="depth">
+                  <div class="mb-5 flex items-center justify-between">
+                    <div>
+                      <p class="text-xs uppercase tracking-[0.3em] text-white/45">Visual Showcase</p>
+                      <p class="gold-text text-2xl font-bold">90skidsdigital</p>
+                    </div>
+                    <span class="rounded-full border border-white/20 bg-white/8 px-4 py-2 text-xs uppercase tracking-[0.28em] text-white/60">
+                      Web + Films + Growth
+                    </span>
+                  </div>
+                    <div class="grid gap-5 sm:grid-cols-[1.1fr_0.9fr]">
+                    <div class="relative overflow-hidden rounded-[28px] border border-white/15 bg-black/15 p-3">
+                      <img src="./assets/showcase-ref.jpg" alt="Creative visual showcase reference" class="h-[320px] w-full rounded-[24px] object-cover object-center brightness-[0.88] contrast-[1.04] saturate-[0.88]" loading="lazy" />
+                      <div class="absolute inset-3 rounded-[24px] bg-[linear-gradient(180deg,rgba(8,10,18,0.02),rgba(8,10,18,0.46))]"></div>
+                      <div class="absolute left-8 top-8 rounded-full border border-white/18 bg-white/10 px-4 py-2 text-[10px] uppercase tracking-[0.32em] text-white/80 backdrop-blur-xl">
+                        Visual Direction
+                      </div>
+                      <div class="absolute inset-x-6 bottom-6 rounded-[22px] border border-white/18 bg-black/25 px-5 py-4 backdrop-blur-xl">
+                        <p class="text-[10px] uppercase tracking-[0.3em] text-white/55">Moodboard</p>
+                        <p class="mt-2 text-sm font-medium leading-6 text-white/82">Idea-first creative process with cinematic framing, story-led visuals, and polished premium execution.</p>
+                      </div>
+                    </div>
+                      <div class="flex min-w-0 flex-col justify-between gap-4">
+                        <div class="rounded-[28px] border border-white/15 bg-[linear-gradient(180deg,rgba(255,255,255,0.14),rgba(255,255,255,0.05))] p-5">
+                          <p class="text-xs uppercase tracking-[0.28em] text-white/45">Services</p>
+                          <p class="mt-4 text-lg leading-8 text-white/80">Websites, Shopify stores, social media management, Meta ads, influencer campaigns, shoots, edits, documentaries, and 3D Blender-led visuals.</p>
+                        </div>
+                      <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                        <div class="min-w-0 rounded-[22px] border border-white/10 bg-white/8 p-4">
+                          <p class="text-xs uppercase tracking-[0.3em] text-white/45">Base</p>
+                          <p class="mt-2 break-words text-sm font-bold uppercase leading-tight text-white sm:text-base">BHAGALPUR</p>
+                        </div>
+                        <div class="min-w-0 rounded-[22px] border border-white/10 bg-white/8 p-4">
+                          <p class="text-xs uppercase tracking-[0.3em] text-white/45">Focus</p>
+                          <p class="mt-2 break-words text-sm font-bold uppercase leading-tight text-white sm:text-base">GROWTH</p>
+                        </div>
+                      </div>
+                      <div class="min-w-0 rounded-[22px] border border-white/10 bg-white/8 p-4">
+                        <p class="text-xs uppercase tracking-[0.3em] text-white/45">Style</p>
+                        <p class="mt-2 break-words text-base font-bold leading-tight text-white">Clean glass visuals with cinematic polish</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            <div class="grid gap-5 sm:grid-cols-3">
+              <div class="glass rounded-[30px] p-5">
+                <p class="text-xs uppercase tracking-[0.3em] text-white/45">Selected Reach</p>
+                <p class="mt-4 text-4xl font-extrabold gold-text">5L+</p>
+                <p class="mt-2 text-sm text-white/70">Campaign views across growth-focused social media projects.</p>
+              </div>
+              <div class="glass rounded-[30px] p-5">
+                <p class="text-xs uppercase tracking-[0.3em] text-white/45">Media Formats</p>
+                <p class="mt-4 text-4xl font-extrabold gold-text">360</p>
+                <p class="mt-2 text-sm text-white/70">Websites, reels, ads, brand films, documentaries, and 3D visuals.</p>
+              </div>
+              <div class="glass rounded-[30px] p-5">
+                <p class="text-xs uppercase tracking-[0.3em] text-white/45">Studio Mindset</p>
+                <p class="mt-4 text-4xl font-extrabold gold-text">01</p>
+                <p class="mt-2 text-sm text-white/70">Luxury aesthetic with strategy, storytelling, and execution under one roof.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="px-4 py-20 sm:px-6 lg:px-10">
+        <div class="mx-auto max-w-7xl">
+          <div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p class="section-number text-xl">02 / ABOUT</p>
+              <h2 class="mt-3 text-3xl font-extrabold sm:text-5xl">A studio shaped like a luxury creative control room.</h2>
+            </div>
+            <p class="max-w-2xl text-base leading-8 text-white/70">
+              90skidsdigital blends founder-led strategy with a polished visual language inspired by premium fashion,
+              Apple-grade clarity, Tesla-level restraint, and cinematic storytelling built for attention.
+            </p>
+          </div>
+
+          <div class="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+            <div class="glass rounded-[34px] p-5 sm:p-7">
+              <div class="grid gap-5 sm:grid-cols-[0.9fr_1.1fr]">
+                <img src="./assets/founder-full.jpg" alt="Nirbhay Yadav full portrait" class="h-full min-h-[420px] w-full rounded-[28px] object-cover" loading="lazy" />
+                <div class="space-y-5">
+                  <div class="rounded-[28px] border border-white/12 bg-white/8 p-5">
+                    <p class="text-xs uppercase tracking-[0.28em] text-white/45">Founder Note</p>
+                    <p class="mt-4 text-lg leading-8 text-white/78">
+                      I'm Nirbhay Yadav, founder of 90skidsdigital. I build brands with premium websites, sharp content systems,
+                      social media growth, Meta marketing, influencer collaborations, and polished video storytelling that feels modern,
+                      elevated, and conversion-ready.
+                    </p>
+                  </div>
+                  <div class="grid grid-cols-2 gap-4">
+                    <div class="rounded-[24px] border border-white/12 bg-white/8 p-5">
+                      <p class="text-xs uppercase tracking-[0.28em] text-white/45">Services</p>
+                      <p class="mt-3 text-lg font-bold text-white">Web + Marketing + Production</p>
+                    </div>
+                    <div class="rounded-[24px] border border-white/12 bg-white/8 p-5">
+                      <p class="text-xs uppercase tracking-[0.28em] text-white/45">Strength</p>
+                      <p class="mt-3 text-lg font-bold text-white">Founder-led execution</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid gap-6">
+              <div class="glass rounded-[34px] p-6 sm:p-7">
+                <div class="mb-5 flex items-center justify-between">
+                  <div>
+                    <p class="text-xs uppercase tracking-[0.28em] text-white/45">Studio Setup</p>
+                    <h3 class="mt-2 text-2xl font-bold">Built for shoots, edits, design systems, and campaign delivery.</h3>
+                  </div>
+                  <span class="rounded-full border border-white/15 bg-white/8 px-4 py-2 text-xs uppercase tracking-[0.28em] text-white/55">Premium workflow</span>
+                </div>
+                <img src="./assets/studio-setup.jpg" alt="90skidsdigital studio setup" class="h-[290px] w-full rounded-[30px] object-cover" loading="lazy" />
+                <p class="mt-5 text-base leading-8 text-white/72">
+                  From studio-grade editing to website production, social media strategy, ad creatives, and 3D Blender explorations,
+                  the setup is designed to keep brand storytelling fast, premium, and consistent.
+                </p>
+              </div>
+
+              <div class="grid gap-5 sm:grid-cols-3">
+                <div class="service-bubble glass rounded-[30px] p-5">
+                  <p class="text-xs uppercase tracking-[0.28em] text-white/45">Website Systems</p>
+                  <p class="mt-3 text-lg font-bold">Showcase, Shopify, landing pages, portfolio builds</p>
+                </div>
+                <div class="service-bubble glass rounded-[30px] p-5">
+                  <p class="text-xs uppercase tracking-[0.28em] text-white/45">Creative Production</p>
+                  <p class="mt-3 text-lg font-bold">Short films, music videos, documentaries, shoots, edits</p>
+                </div>
+                <div class="service-bubble glass rounded-[30px] p-5">
+                  <p class="text-xs uppercase tracking-[0.28em] text-white/45">Growth Engine</p>
+                  <p class="mt-3 text-lg font-bold">Social management, Meta ads, influencer marketing</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="work" class="px-4 py-20 sm:px-6 lg:px-10">
+        <div class="mx-auto max-w-7xl">
+          <div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p class="section-number text-xl">03 / WORK</p>
+              <h2 class="mt-3 text-3xl font-extrabold sm:text-5xl">Web projects, social media wins, and cinematic proof.</h2>
+            </div>
+            <p class="max-w-2xl text-base leading-8 text-white/70">
+              This section combines live web references, social proof creatives, and screen-ready production work so visitors feel the depth of the studio instantly.
+            </p>
+          </div>
+
+          <div class="grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
+            <div class="grid gap-6 md:grid-cols-2">
+              <article class="project-card glass rounded-[34px] p-5">
+                <img src="./assets/manpasand.png" alt="Manpasand Shoes website reference" class="h-56 w-full rounded-[26px] object-cover" loading="lazy" />
+                <div class="mt-5 flex items-start justify-between gap-4">
+                  <div>
+                    <p class="text-xs uppercase tracking-[0.28em] text-white/45">Website Reference 01</p>
+                    <h3 class="mt-2 text-2xl font-bold">Manpasand Shoes</h3>
+                    <p class="mt-3 text-sm leading-7 text-white/70">Premium e-commerce direction for a product-first brand presence with elevated visuals and clear conversion flow.</p>
+                  </div>
+                  <span class="rounded-full border border-white/15 bg-white/8 px-3 py-2 text-xs uppercase tracking-[0.22em] text-white/55">Web</span>
+                </div>
+                <a href="https://manpasandshoes.com" target="_blank" rel="noreferrer" class="pill-button mt-5 inline-flex rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/15">View Project</a>
+              </article>
+
+              <article class="project-card glass rounded-[34px] p-5">
+                <img src="./assets/hextpharma.jpg" alt="Hext Pharma work reference" class="h-56 w-full rounded-[26px] object-cover" loading="lazy" />
+                <div class="mt-5 flex items-start justify-between gap-4">
+                  <div>
+                    <p class="text-xs uppercase tracking-[0.28em] text-white/45">Website Reference 02</p>
+                    <h3 class="mt-2 text-2xl font-bold">Hext Pharma</h3>
+                    <p class="mt-3 text-sm leading-7 text-white/70">A clean pharma-focused web presence currently in progress with trust-led design and modern clarity.</p>
+                  </div>
+                  <span class="rounded-full border border-white/15 bg-white/8 px-3 py-2 text-xs uppercase tracking-[0.22em] text-white/55">In Progress</span>
+                </div>
+                <a href="https://www.hextpharma.com" target="_blank" rel="noreferrer" class="pill-button mt-5 inline-flex rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/15">View Project</a>
+              </article>
+
+              <article class="project-card glass rounded-[34px] p-5">
+                <img src="./assets/studio99.jpg" alt="Studio 99 creative reference" class="h-56 w-full rounded-[26px] object-cover" loading="lazy" />
+                <div class="mt-5 flex items-start justify-between gap-4">
+                  <div>
+                    <p class="text-xs uppercase tracking-[0.28em] text-white/45">Branding Reference 03</p>
+                    <h3 class="mt-2 text-2xl font-bold">Studio 99</h3>
+                    <p class="mt-3 text-sm leading-7 text-white/70">Luxury salon visual storytelling, premium service positioning, and campaign-ready design language.</p>
+                  </div>
+                  <span class="rounded-full border border-white/15 bg-white/8 px-3 py-2 text-xs uppercase tracking-[0.22em] text-white/55">Branding</span>
+                </div>
+                <a href="#contact" class="pill-button mt-5 inline-flex rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/15">View Project</a>
+              </article>
+
+              <article class="project-card glass rounded-[34px] p-5">
+                <img src="./assets/taurian-world-school.jpg" alt="Taurian World School campaign reference" class="h-56 w-full rounded-[26px] object-cover" loading="lazy" />
+                <div class="mt-5 flex items-start justify-between gap-4">
+                  <div>
+                    <p class="text-xs uppercase tracking-[0.28em] text-white/45">Growth Reference 04</p>
+                    <h3 class="mt-2 text-2xl font-bold">Taurian World School</h3>
+                    <p class="mt-3 text-sm leading-7 text-white/70">Handled social media presence and content shooting with strategy that feels polished, trustworthy, and campus-ready.</p>
+                  </div>
+                  <span class="rounded-full border border-white/15 bg-white/8 px-3 py-2 text-xs uppercase tracking-[0.22em] text-white/55">Social Media</span>
+                </div>
+                <a href="#contact" class="pill-button mt-5 inline-flex rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/15">View Project</a>
+              </article>
+
+              <article class="project-card glass rounded-[34px] p-5">
+                <img src="./assets/connplex.jpg" alt="Connplex cinema marketing reference" class="h-56 w-full rounded-[26px] object-cover" loading="lazy" />
+                <div class="mt-5 flex items-start justify-between gap-4">
+                  <div>
+                    <p class="text-xs uppercase tracking-[0.28em] text-white/45">Campaign Reference 05</p>
+                    <h3 class="mt-2 text-2xl font-bold">Connplex Bhagalpur</h3>
+                    <p class="mt-3 text-sm leading-7 text-white/70">Entertainment marketing designed to lift attention and drive reach with campaign visuals that feel event-sized.</p>
+                  </div>
+                  <span class="rounded-full border border-white/15 bg-white/8 px-3 py-2 text-xs uppercase tracking-[0.22em] text-white/55">Meta Marketing</span>
+                </div>
+                <a href="#contact" class="pill-button mt-5 inline-flex rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/15">View Project</a>
+              </article>
+
+              <article class="project-card glass rounded-[34px] p-5">
+                <img src="./assets/sandys-compound.jpg" alt="Sandys Compound social growth reference" class="h-56 w-full rounded-[26px] object-cover" loading="lazy" />
+                <div class="mt-5 flex items-start justify-between gap-4">
+                  <div>
+                    <p class="text-xs uppercase tracking-[0.28em] text-white/45">Growth Reference 06</p>
+                    <h3 class="mt-2 text-2xl font-bold">Sandy's Compound</h3>
+                    <p class="mt-3 text-sm leading-7 text-white/70">High-visibility content and social campaign support built to turn everyday business moments into audience magnetism.</p>
+                  </div>
+                  <span class="rounded-full border border-white/15 bg-white/8 px-3 py-2 text-xs uppercase tracking-[0.22em] text-white/55">Campaign Design</span>
+                </div>
+                <a href="#contact" class="pill-button mt-5 inline-flex rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/15">View Project</a>
+              </article>
+            </div>
+
+            <div class="grid gap-6">
+              <div class="social-proof glass rounded-[34px] p-6">
+                <p class="text-xs uppercase tracking-[0.28em] text-white/45">Social Proof</p>
+                <h3 class="mt-3 text-3xl font-bold">Organic growth work with style-heavy execution.</h3>
+                <div class="mt-6 grid gap-4 sm:grid-cols-2">
+                  <img src="./assets/four-seasons.png" alt="The Four Seasons growth reference" class="h-52 w-full rounded-[24px] object-cover" loading="lazy" />
+                  <img src="./assets/art-page.jpg" alt="90s Kids art page reference" class="h-52 w-full rounded-[24px] object-cover" loading="lazy" />
+                  <img src="./assets/studio99.jpg" alt="Studio 99 poster reference" class="h-52 w-full rounded-[24px] object-cover" loading="lazy" />
+                  <img src="./assets/taurian-world-school.jpg" alt="Taurian World School reference" class="h-52 w-full rounded-[24px] object-cover" loading="lazy" />
+                </div>
+              </div>
+
+              <div class="social-proof glass rounded-[34px] p-6">
+                <p class="text-xs uppercase tracking-[0.28em] text-white/45">Film & Documentary</p>
+                <h3 class="mt-3 text-3xl font-bold">Short films, music videos, and regional storytelling.</h3>
+                <img src="./assets/bihar-flood.jpg" alt="Bihar Flood documentary thumbnail" class="mt-5 h-64 w-full rounded-[26px] object-cover" loading="lazy" />
+                <div class="mt-5 grid gap-3 sm:grid-cols-2">
+                  <a href="https://youtu.be/H_5fjcyPxB8" target="_blank" rel="noreferrer" class="pill-button rounded-full border border-white/20 bg-white/10 px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-white/15">Watch Film 01</a>
+                  <a href="https://youtu.be/ZDlPN9cPb28" target="_blank" rel="noreferrer" class="pill-button rounded-full border border-white/20 bg-white/10 px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-white/15">Watch Film 02</a>
+                </div>
+                <p class="mt-4 text-sm leading-7 text-white/70">
+                  From documentary work like the Bihar flood film to music videos and cinematic edits, the studio brings narrative, rhythm,
+                  and audience attention into every production.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="px-4 py-20 sm:px-6 lg:px-10">
+        <div class="mx-auto max-w-7xl">
+          <div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p class="section-number text-xl">04 / EXPERIENCE / SKILLS</p>
+              <h2 class="mt-3 text-3xl font-extrabold sm:text-5xl">Built to handle the full premium content pipeline.</h2>
+            </div>
+            <p class="max-w-2xl text-base leading-8 text-white/70">
+              One studio, multiple execution layers: website design, Shopify buildouts, growth strategy, ads, production, editing, and 3D art direction.
+            </p>
+          </div>
+
+          <div class="grid gap-6 lg:grid-cols-[1fr_0.95fr]">
+            <div class="glass rounded-[34px] p-6 sm:p-8">
+              <div class="space-y-6">
+                <div class="skill-row">
+                  <div class="mb-3 flex items-center justify-between">
+                    <p class="text-sm font-semibold uppercase tracking-[0.24em] text-white/70">Luxury Website Design</p>
+                    <span class="text-sm text-gold">96%</span>
+                  </div>
+                  <div class="progress-track h-3 rounded-full">
+                    <div class="progress-fill h-full rounded-full" data-width="96%"></div>
+                  </div>
+                </div>
+                <div class="skill-row">
+                  <div class="mb-3 flex items-center justify-between">
+                    <p class="text-sm font-semibold uppercase tracking-[0.24em] text-white/70">Shopify & Conversion Pages</p>
+                    <span class="text-sm text-gold">90%</span>
+                  </div>
+                  <div class="progress-track h-3 rounded-full">
+                    <div class="progress-fill h-full rounded-full" data-width="90%"></div>
+                  </div>
+                </div>
+                <div class="skill-row">
+                  <div class="mb-3 flex items-center justify-between">
+                    <p class="text-sm font-semibold uppercase tracking-[0.24em] text-white/70">Social Media Management</p>
+                    <span class="text-sm text-gold">94%</span>
+                  </div>
+                  <div class="progress-track h-3 rounded-full">
+                    <div class="progress-fill h-full rounded-full" data-width="94%"></div>
+                  </div>
+                </div>
+                <div class="skill-row">
+                  <div class="mb-3 flex items-center justify-between">
+                    <p class="text-sm font-semibold uppercase tracking-[0.24em] text-white/70">Meta Marketing & Campaigns</p>
+                    <span class="text-sm text-gold">89%</span>
+                  </div>
+                  <div class="progress-track h-3 rounded-full">
+                    <div class="progress-fill h-full rounded-full" data-width="89%"></div>
+                  </div>
+                </div>
+                <div class="skill-row">
+                  <div class="mb-3 flex items-center justify-between">
+                    <p class="text-sm font-semibold uppercase tracking-[0.24em] text-white/70">Films, Shoots & Editing</p>
+                    <span class="text-sm text-gold">92%</span>
+                  </div>
+                  <div class="progress-track h-3 rounded-full">
+                    <div class="progress-fill h-full rounded-full" data-width="92%"></div>
+                  </div>
+                </div>
+                <div class="skill-row">
+                  <div class="mb-3 flex items-center justify-between">
+                    <p class="text-sm font-semibold uppercase tracking-[0.24em] text-white/70">3D Blender Direction</p>
+                    <span class="text-sm text-gold">84%</span>
+                  </div>
+                  <div class="progress-track h-3 rounded-full">
+                    <div class="progress-fill h-full rounded-full" data-width="84%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid gap-5 sm:grid-cols-2">
+              <div class="skill-card glass rounded-[30px] p-5">
+                <p class="text-3xl">01</p>
+                <h3 class="mt-4 text-xl font-bold">Brand Websites</h3>
+                <p class="mt-3 text-sm leading-7 text-white/72">Premium layouts, landing pages, portfolio systems, and business-first storytelling with modern polish.</p>
+              </div>
+              <div class="skill-card glass rounded-[30px] p-5">
+                <p class="text-3xl">02</p>
+                <h3 class="mt-4 text-xl font-bold">Shopify Stores</h3>
+                <p class="mt-3 text-sm leading-7 text-white/72">Product-focused storefronts with clean navigation, sleek sections, and better trust signals.</p>
+              </div>
+              <div class="skill-card glass rounded-[30px] p-5">
+                <p class="text-3xl">03</p>
+                <h3 class="mt-4 text-xl font-bold">Meta Ads</h3>
+                <p class="mt-3 text-sm leading-7 text-white/72">Campaign creatives, strategic positioning, and audience-ready assets built for attention and reach.</p>
+              </div>
+              <div class="skill-card glass rounded-[30px] p-5">
+                <p class="text-3xl">04</p>
+                <h3 class="mt-4 text-xl font-bold">Influencer Marketing</h3>
+                <p class="mt-3 text-sm leading-7 text-white/72">Creator-led collaborations that merge premium brand visuals with social proof and distribution.</p>
+              </div>
+              <div class="skill-card glass rounded-[30px] p-5">
+                <p class="text-3xl">05</p>
+                <h3 class="mt-4 text-xl font-bold">Shoot & Edit</h3>
+                <p class="mt-3 text-sm leading-7 text-white/72">Reels, ad creatives, music videos, documentary work, and short-form campaigns with cinematic rhythm.</p>
+              </div>
+              <div class="skill-card glass rounded-[30px] p-5">
+                <p class="text-3xl">06</p>
+                <h3 class="mt-4 text-xl font-bold">3D Blender</h3>
+                <p class="mt-3 text-sm leading-7 text-white/72">3D-ready motion direction and visual experimentation for future-facing brand presence.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="px-4 py-20 sm:px-6 lg:px-10">
+        <div class="mx-auto max-w-7xl">
+          <div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p class="section-number text-xl">05 / PROOF</p>
+              <h2 class="mt-3 text-3xl font-extrabold sm:text-5xl">Why brands stay with the studio.</h2>
+            </div>
+            <p class="max-w-2xl text-base leading-8 text-white/70">
+              The positioning is simple: premium aesthetics, founder-led execution, strong delivery across formats, and client trust shaped by repeat work and strong feedback.
+            </p>
+          </div>
+
+          <div class="grid gap-6 lg:grid-cols-3">
+            <div class="glass rounded-[34px] p-6">
+              <p class="text-xs uppercase tracking-[0.28em] text-white/45">Upwork</p>
+              <h3 class="mt-3 text-2xl font-bold">Great client feedback and strong ratings.</h3>
+              <p class="mt-4 text-sm leading-7 text-white/72">The studio carries a premium client service mindset with attention to detail, fast communication, and founder-led quality control.</p>
+            </div>
+            <div class="glass rounded-[34px] p-6">
+              <p class="text-xs uppercase tracking-[0.28em] text-white/45">Bhagalpur Roots</p>
+              <h3 class="mt-3 text-2xl font-bold">Local understanding, global aesthetic.</h3>
+              <p class="mt-4 text-sm leading-7 text-white/72">Built in Bihar, designed with a high-end digital language that helps regional brands look world-class online.</p>
+            </div>
+            <div class="glass rounded-[34px] p-6">
+              <p class="text-xs uppercase tracking-[0.28em] text-white/45">Execution</p>
+              <h3 class="mt-3 text-2xl font-bold">No fragmented handoff.</h3>
+              <p class="mt-4 text-sm leading-7 text-white/72">From strategy to visuals to website to campaign launch, everything is shaped under one creative direction.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <section id="contact" class="px-4 pb-24 pt-20 sm:px-6 lg:px-10">
+      <div class="mx-auto max-w-7xl">
+        <div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p class="section-number text-xl">06 / CONTACT</p>
+            <h2 class="mt-3 text-3xl font-extrabold sm:text-5xl">Let's design the next premium move for your brand.</h2>
+          </div>
+          <p class="max-w-2xl text-base leading-8 text-white/70">
+            Perfect for websites, Shopify stores, high-end social media systems, Meta ads, creative shoots, edits, influencer campaigns, and visual direction.
+          </p>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+          <div class="contact-card glass rounded-[38px] p-6 sm:p-8">
+            <p class="text-xs uppercase tracking-[0.28em] text-white/45">Quick Connect</p>
+            <h3 class="mt-3 text-3xl font-bold">Message on WhatsApp for pricing, timelines, or a custom package.</h3>
+            <div class="mt-8 grid gap-4 sm:grid-cols-2">
+              <a href="https://wa.me/917717766958?text=Hi%2090skidsdigital%2C%20I%20want%20pricing%20for%20my%20project." target="_blank" rel="noreferrer" class="pill-button rounded-[26px] border border-white/20 bg-white/12 p-5 text-left transition hover:bg-white/16">
+                <p class="text-xs uppercase tracking-[0.28em] text-white/45">WhatsApp</p>
+                <p class="mt-3 text-xl font-bold text-white">+91 77177 66958</p>
+                <p class="mt-2 text-sm text-white/68">Fastest way to discuss pricing and project scope.</p>
+              </a>
+              <a href="https://www.instagram.com/p/DUS3JoLk3ot/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noreferrer" class="pill-button rounded-[26px] border border-white/20 bg-white/12 p-5 text-left transition hover:bg-white/16">
+                <p class="text-xs uppercase tracking-[0.28em] text-white/45">Instagram</p>
+                <p class="mt-3 text-xl font-bold text-white">Social Proof & Work</p>
+                <p class="mt-2 text-sm text-white/68">Open the current Instagram work reference.</p>
+              </a>
+              <a href="https://youtu.be/H_5fjcyPxB8" target="_blank" rel="noreferrer" class="pill-button rounded-[26px] border border-white/20 bg-white/12 p-5 text-left transition hover:bg-white/16">
+                <p class="text-xs uppercase tracking-[0.28em] text-white/45">YouTube</p>
+                <p class="mt-3 text-xl font-bold text-white">Watch our films</p>
+                <p class="mt-2 text-sm text-white/68">Documentary and visual storytelling portfolio.</p>
+              </a>
+              <div class="rounded-[26px] border border-white/20 bg-white/12 p-5">
+                <p class="text-xs uppercase tracking-[0.28em] text-white/45">Location</p>
+                <p class="mt-3 text-xl font-bold text-white">Bhagalpur, Bihar</p>
+                <p class="mt-2 text-sm text-white/68">Serving ambitious local and remote brands with a premium visual standard.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-card glass rounded-[38px] p-6 sm:p-8">
+            <p class="text-xs uppercase tracking-[0.28em] text-white/45">Luxury Inquiry Form</p>
+            <h3 class="mt-3 text-3xl font-bold">Start the conversation.</h3>
+            <form id="inquiryForm" class="mt-8 space-y-4">
+              <!-- This form sends the inquiry to WhatsApp so the page works on Vercel without backend setup. -->
+              <label class="block">
+                <span class="mb-2 block text-sm text-white/68">Name</span>
+                <input type="text" name="name" placeholder="Your name" class="w-full rounded-[22px] border border-white/16 bg-white/10 px-5 py-4 text-white outline-none transition placeholder:text-white/35 focus:border-white/35 focus:bg-white/12" />
+              </label>
+              <label class="block">
+                <span class="mb-2 block text-sm text-white/68">Brand / Business</span>
+                <input type="text" name="brand" placeholder="Brand name" class="w-full rounded-[22px] border border-white/16 bg-white/10 px-5 py-4 text-white outline-none transition placeholder:text-white/35 focus:border-white/35 focus:bg-white/12" />
+              </label>
+              <label class="block">
+                <span class="mb-2 block text-sm text-white/68">Service Needed</span>
+                <input type="text" name="service" placeholder="Website / Ads / Social / Shoot / Edit / 3D" class="w-full rounded-[22px] border border-white/16 bg-white/10 px-5 py-4 text-white outline-none transition placeholder:text-white/35 focus:border-white/35 focus:bg-white/12" />
+              </label>
+              <label class="block">
+                <span class="mb-2 block text-sm text-white/68">Project Brief</span>
+                <textarea name="brief" rows="5" placeholder="Tell us what you want to build" class="w-full rounded-[22px] border border-white/16 bg-white/10 px-5 py-4 text-white outline-none transition placeholder:text-white/35 focus:border-white/35 focus:bg-white/12"></textarea>
+              </label>
+                <button type="submit" class="pill-button w-full rounded-[22px] border border-gold/30 bg-gradient-to-r from-gold/90 to-[#fff0c4] px-6 py-4 text-sm font-extrabold uppercase tracking-[0.28em] text-slate-950 transition hover:scale-[1.01]">
+                  Send Inquiry
+                </button>
+              </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="px-4 pb-10 sm:px-6 lg:px-10">
+      <div class="glass mx-auto flex max-w-7xl flex-col gap-5 rounded-[34px] px-6 py-6 text-sm text-white/65 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p class="font-semibold text-white">90skidsdigital</p>
+          <p>Luxury websites, social media systems, films, ads, and premium creative direction from Bhagalpur.</p>
+        </div>
+        <div class="flex flex-wrap gap-4">
+          <a href="#home" class="transition hover:text-white">Home</a>
+          <a href="#work" class="transition hover:text-white">Work</a>
+          <a href="#contact" class="transition hover:text-white">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <a href="https://wa.me/917717766958?text=Hi%2090skidsdigital%2C%20I%20want%20to%20talk%20about%20my%20brand." target="_blank" rel="noreferrer" class="floating-whatsapp fixed bottom-6 right-6 z-50 rounded-full border border-white/20 bg-white/15 px-6 py-4 text-sm font-bold text-white shadow-luxe backdrop-blur-2xl">
+    WhatsApp for Pricing
+  </a>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from(".hero-card", {
+      y: 40,
+      scale: 0.96,
+      filter: "blur(18px)",
+      opacity: 0,
+      duration: 1.15,
+      ease: "power3.out",
+      stagger: 0.18
+    });
+
+    gsap.to(".hero-bg", {
+      scale: 1.16,
+      duration: 14,
+      ease: "none",
+      repeat: -1,
+      yoyo: true
+    });
+
+    gsap.utils.toArray(".glass, .project-card, .skill-card, .social-proof, .contact-card").forEach((card) => {
+      gsap.from(card, {
+        y: 48,
+        opacity: 0,
+        filter: "blur(14px)",
+        duration: 0.9,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: card,
+          start: "top 88%"
+        }
+      });
+    });
+
+    const parallaxTargets = document.querySelectorAll(".hero-card, .project-card, .skill-card, .social-proof, .contact-card");
+    window.addEventListener("mousemove", (event) => {
+      const x = (event.clientX / window.innerWidth - 0.5) * 16;
+      const y = (event.clientY / window.innerHeight - 0.5) * 16;
+      parallaxTargets.forEach((target, index) => {
+        const factor = target.classList.contains("hero-card") ? 1 : 0.55 + (index % 3) * 0.08;
+        target.style.transform = `translate3d(${x * factor * 0.4}px, ${y * factor * 0.4}px, 0) rotateX(${-y * factor * 0.12}deg) rotateY(${x * factor * 0.12}deg)`;
+      });
+    });
+
+    window.addEventListener("mouseleave", () => {
+      parallaxTargets.forEach((target) => {
+        target.style.transform = "";
+      });
+    });
+
+    const progressSection = document.querySelector("#skills .glass");
+    const progressObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          document.querySelectorAll(".progress-fill").forEach((bar) => {
+            bar.style.width = bar.dataset.width;
+          });
+          progressObserver.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.35 }
+    );
+    if (progressSection) progressObserver.observe(progressSection);
+
+    const inquiryForm = document.getElementById("inquiryForm");
+    if (inquiryForm) {
+      inquiryForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const formData = new FormData(inquiryForm);
+        const message = [
+          "Hi 90skidsdigital, I want to discuss a project.",
+          `Name: ${formData.get("name") || ""}`,
+          `Brand: ${formData.get("brand") || ""}`,
+          `Service: ${formData.get("service") || ""}`,
+          `Brief: ${formData.get("brief") || ""}`
+        ].join("\n");
+        const url = `https://wa.me/917717766958?text=${encodeURIComponent(message)}`;
+        window.open(url, "_blank", "noopener,noreferrer");
+      });
+    }
+
+    const canvas = document.getElementById("particleCanvas");
+    const context = canvas.getContext("2d");
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    function createParticles() {
+      const count = Math.min(48, Math.floor(window.innerWidth / 30));
+      particles = Array.from({ length: count }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 2.2 + 0.4,
+        speedY: Math.random() * 0.35 + 0.08,
+        speedX: (Math.random() - 0.5) * 0.15,
+        alpha: Math.random() * 0.35 + 0.08
+      }));
+    }
+
+    function drawParticles() {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((particle) => {
+        context.beginPath();
+        context.fillStyle = `rgba(255, 255, 255, ${particle.alpha})`;
+        context.shadowColor = "rgba(228,194,122,0.3)";
+        context.shadowBlur = 12;
+        context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+        context.fill();
+
+        particle.y -= particle.speedY;
+        particle.x += particle.speedX;
+        if (particle.y < -10) particle.y = canvas.height + 10;
+        if (particle.x > canvas.width + 20) particle.x = -20;
+        if (particle.x < -20) particle.x = canvas.width + 20;
+      });
+      requestAnimationFrame(drawParticles);
+    }
+
+    resizeCanvas();
+    createParticles();
+    drawParticles();
+    window.addEventListener("resize", () => {
+      resizeCanvas();
+      createParticles();
+    });
+  </script>
+</body>
+</html>
