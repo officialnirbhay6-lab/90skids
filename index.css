@@ -322,8 +322,8 @@ p {
   align-items: center;
   padding: clamp(24px, 5.5vw, 72px);
   background: 
-    linear-gradient(180deg, rgba(7, 4, 5, 0.45), rgba(7, 4, 5, 0.85)),
-    url("./assets/hero-bg.jpg") center / cover no-repeat;
+    linear-gradient(180deg, rgba(7, 4, 5, 0.65), rgba(7, 4, 5, 0.88)),
+    url("./assets/hero_bg.jpg") center / cover no-repeat;
   border: 1px solid var(--line);
 }
 
