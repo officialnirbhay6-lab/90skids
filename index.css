@@ -650,7 +650,7 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center; /* Centered object position so nothing is cut off weirdly */
+  object-position: top center; /* Top-centered position so website headers and hero visuals display perfectly */
   transition: transform 500ms ease, filter 500ms ease; /* Include filter transition for smooth blur */
   z-index: 1;
 }
