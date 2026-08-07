@@ -623,9 +623,9 @@ p {
 .movie-cards-track {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 28px;
-  width: 100%;
+  width: max-content;
   height: 510px; /* Taller height to fit larger active card */
   z-index: 2;
   position: relative;

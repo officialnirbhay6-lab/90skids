@@ -49,28 +49,22 @@ document.addEventListener("DOMContentLoaded", () => {
         card.classList.toggle('active', idx === index);
       });
  
-      // Dynamically reposition the ambient glow backdrop behind the active card
       const activeCard = movieCards[index];
-      if (activeCard && glowBackdrop) {
-        // Calculate offset relative to parent track
-        const track = activeCard.parentElement;
-        const activeRect = activeCard.getBoundingClientRect();
-        const trackRect = track.getBoundingClientRect();
-        
-        // Find center of card relative to track
-        const cardCenterInTrack = (activeRect.left - trackRect.left) + (activeRect.width / 2);
-        const offsetLeft = cardCenterInTrack - (glowBackdrop.offsetWidth / 2);
-        
-        glowBackdrop.style.transform = `translate(${offsetLeft}px, -30px)`;
-      }
- 
-      // Scroll card into view on small screens/mobile horizontally
-      if (shouldScroll && activeCard) {
-        activeCard.scrollIntoView({
-          behavior: 'smooth',
-          block: 'nearest',
-          inline: 'center'
-        });
+      if (activeCard && movieCardsTrack) {
+        // Calculate offset to center the active card inside the container
+        const containerWidth = movieSliderContainer.offsetWidth;
+        const cardLeft = activeCard.offsetLeft;
+        const cardWidth = activeCard.offsetWidth;
+        const targetTranslateX = (containerWidth / 2) - (cardLeft + cardWidth / 2);
+
+        // Slide track so active card is always centered
+        movieCardsTrack.style.transform = `translateX(${targetTranslateX}px)`;
+
+        // Reposition glow backdrop behind active card
+        if (glowBackdrop) {
+          const glowCenter = (cardLeft + cardWidth / 2) - (glowBackdrop.offsetWidth / 2);
+          glowBackdrop.style.transform = `translate(${glowCenter + targetTranslateX}px, -30px)`;
+        }
       }
     };
  
