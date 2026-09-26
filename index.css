@@ -1426,6 +1426,7 @@ textarea {
 .polaroid-card:nth-child(3) { transform: rotate(-2deg) translateY(40px); }
 .polaroid-card:nth-child(4) { transform: rotate(6deg) translateY(25px); }
 .polaroid-card:nth-child(5) { transform: rotate(-4deg) translateY(15px); }
+.polaroid-card:nth-child(6) { transform: rotate(4deg) translateY(35px); }
 
 /* The Pin */
 .polaroid-pin {
