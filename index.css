@@ -1367,19 +1367,30 @@ textarea {
 
 .polaroid-gallery-inner {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 20px;
   width: 100%;
   max-width: 1200px;
-  padding: 0 20px;
+  padding: 40px 20px 60px 20px; /* Extra padding to prevent hover effects from clipping in scroll container */
   position: relative;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  /* Hide scrollbar for a cleaner look */
+  scrollbar-width: none;
+}
+
+.polaroid-gallery-inner::-webkit-scrollbar {
+  display: none;
 }
 
 @media (min-width: 992px) {
   .polaroid-gallery-inner {
-    flex-wrap: nowrap;
+    justify-content: center;
     gap: 30px;
+    padding: 0 20px;
+    overflow: visible;
   }
 }
 
@@ -1389,8 +1400,7 @@ textarea {
   padding: 12px 12px 24px 12px;
   border-radius: 12px;
   box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-  width: calc(50% - 20px);
-  max-width: 220px;
+  flex: 0 0 160px; /* Fixed width on mobile */
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
   cursor: pointer;
   text-decoration: none;
@@ -1400,7 +1410,7 @@ textarea {
 
 @media (min-width: 768px) {
   .polaroid-card {
-    width: 200px;
+    flex: 0 0 200px;
   }
 }
 
