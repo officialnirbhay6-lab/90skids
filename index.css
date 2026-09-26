@@ -322,8 +322,8 @@ p {
   align-items: center;
   padding: clamp(24px, 5.5vw, 72px);
   background: 
-    linear-gradient(180deg, rgba(7, 4, 5, 0.65), rgba(7, 4, 5, 0.88)),
-    url("./assets/hero_bg.jpg") center / cover no-repeat;
+    linear-gradient(180deg, rgba(7, 4, 5, 0.45), rgba(7, 4, 5, 0.85)),
+    url("./assets/hero-bg.jpg") center / cover no-repeat;
   border: 1px solid var(--line);
 }
 
@@ -591,225 +591,7 @@ p {
   overflow: hidden;
 }
 
-.movie-slider-container {
-  position: relative;
-  width: 100%;
-  height: 600px; /* Taller height to fit larger active card */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(7, 4, 5, 0.4);
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--line);
-  overflow: hidden;
-  padding: 24px;
-}
 
-/* Ambient Radial Glow Backdrop behind the active card */
-.movie-glow-backdrop {
-  position: absolute;
-  width: 380px;
-  height: 380px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(242, 15, 37, 0.45) 0%, rgba(255, 93, 53, 0.1) 50%, transparent 100%);
-  filter: blur(60px);
-  z-index: 1;
-  pointer-events: none;
-  transition: transform 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transform: translate(0, -30px);
-}
-
-.movie-cards-track {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 28px;
-  width: max-content;
-  height: 510px; /* Taller height to fit larger active card */
-  z-index: 2;
-  position: relative;
-  transition: transform 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* Base style for both top slider cards and bottom grid cards */
-.movie-card, .marketing-movie-card {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: var(--card-strong);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  transition: all 450ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.movie-card img, .marketing-movie-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center; /* Top-centered position so website headers and hero visuals display perfectly */
-  transition: transform 500ms ease, filter 500ms ease; /* Include filter transition for smooth blur */
-  z-index: 1;
-}
-
-/* Bottom content inside cards */
-.card-content {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(7, 4, 5, 0.9) 0%, rgba(7, 4, 5, 0.5) 40%, transparent 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 20px;
-  z-index: 2;
-  transition: padding 350ms ease, opacity 350ms ease;
-}
-
-.card-content h4 {
-  font-family: var(--font-title);
-  font-size: 1.1rem;
-  font-weight: 850;
-  color: var(--ink);
-  margin-bottom: 0px;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-  letter-spacing: 0.02em;
-}
-
-.card-desc {
-  font-size: 0.8rem;
-  color: var(--muted);
-  line-height: 1.5;
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transform: translateY(6px);
-  transition: max-height 350ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              opacity 350ms ease,
-              transform 350ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              margin-top 350ms ease;
-  margin-top: 0;
-}
-
-.movie-card.active .card-desc,
-.marketing-movie-card:hover .card-desc {
-  max-height: 80px;
-  opacity: 0.85;
-  transform: translateY(0);
-  margin-top: 6px;
-}
-
-.card-visit-btn {
-  font-family: var(--font-title);
-  font-size: 0.72rem;
-  font-weight: 900;
-  color: #070405;
-  background: var(--gold);
-  padding: 6px 14px;
-  border-radius: 999px;
-  align-self: flex-start;
-  opacity: 0;
-  transform: translateY(8px);
-  pointer-events: none;
-  transition: opacity 350ms ease, transform 350ms ease, background 180ms ease;
-  box-shadow: 0 4px 10px rgba(244, 200, 106, 0.2);
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  margin-top: 8px;
-}
-
-.card-visit-btn:hover {
-  background: #fff;
-  color: #070405;
-}
-
-/* Slider Specific Card Scaling (Desktop) */
-.movie-card {
-  flex: 0 0 180px;
-  width: 180px;
-  height: 270px; /* Exact 2:3 aspect ratio */
-  opacity: 0.55;
-  filter: grayscale(20%) brightness(0.8);
-  transform: scale(0.9);
-}
-
-.movie-card:hover {
-  opacity: 0.8;
-  filter: brightness(0.95);
-  transform: scale(0.93) translateY(-4px);
-}
-
-.movie-card.active {
-  flex: 0 0 320px;
-  width: 320px;
-  height: 480px; /* Larger exact 2:3 aspect ratio */
-  opacity: 1;
-  filter: none;
-  transform: scale(1.05) translateY(-6px);
-  border-color: rgba(242, 15, 37, 0.4);
-  box-shadow: 
-    0 25px 55px rgba(0, 0, 0, 0.8),
-    0 0 30px rgba(242, 15, 37, 0.22);
-}
-
-.movie-card.active .card-visit-btn {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-  transition-delay: 80ms;
-}
-
-/* Slider Controls */
-.movie-controls {
-  margin-top: 24px;
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  z-index: 3;
-}
-
-.slider-progress-bar {
-  width: 100px;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 99px;
-  overflow: hidden;
-}
-
-.progress-fill {
-  width: 0%;
-  height: 100%;
-  background: var(--gold);
-  transition: width 0s linear;
-}
-
-.movie-arrows {
-  display: flex;
-  gap: 8px;
-}
-
-.arrow-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--line);
-  color: var(--ink);
-  font-size: 0.85rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 180ms ease;
-}
-
-.arrow-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--gold);
-  color: var(--gold);
-}
 
 /* Marketing Campaign Grid (Movie style!) */
 .marketing-section-header {
@@ -871,38 +653,7 @@ p {
 }
 
 @media (max-width: 768px) {
-  .movie-slider-container {
-    height: 500px;
-    padding: 16px;
-  }
 
-  .movie-cards-track {
-    gap: 16px;
-    height: 390px;
-    overflow-x: auto;
-    justify-content: flex-start;
-    padding: 0 calc(50% - 120px);
-    scroll-padding: 0 calc(50% - 120px);
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .movie-card {
-    flex: 0 0 140px;
-    width: 140px;
-    height: 210px; /* Exact 2:3 ratio */
-  }
-
-  .movie-card.active {
-    flex: 0 0 240px;
-    width: 240px;
-    height: 360px; /* Larger active card on mobile */
-  }
-
-  .movie-glow-backdrop {
-    width: 250px;
-    height: 250px;
-    filter: blur(40px);
-  }
 
   .marketing-movie-grid {
     grid-template-columns: 1fr;
@@ -1598,3 +1349,133 @@ textarea {
     gap: 12px;
   }
 }
+
+/* --- POLAROID GALLERY CSS --- */
+.polaroid-gallery {
+  position: relative;
+  width: 100%;
+  padding: 80px 0 100px 0;
+  display: flex;
+  justify-content: center;
+  overflow: visible;
+  /* background string */
+  background-image: radial-gradient(ellipse at 50% 0%, transparent 70%, rgba(255,255,255,0.15) 71%, transparent 72%);
+  background-size: 150% 120px;
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+
+.polaroid-gallery-inner {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 992px) {
+  .polaroid-gallery-inner {
+    flex-wrap: nowrap;
+    gap: 30px;
+  }
+}
+
+.polaroid-card {
+  position: relative;
+  background-color: #ffffff;
+  padding: 12px 12px 24px 12px;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+  width: calc(50% - 20px);
+  max-width: 220px;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .polaroid-card {
+    width: 200px;
+  }
+}
+
+.polaroid-card:hover {
+  transform: translateY(-15px) rotate(0deg) scale(1.05) !important;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+  z-index: 10;
+}
+
+/* Tilted polaroids */
+.polaroid-card:nth-child(1) { transform: rotate(-5deg) translateY(10px); }
+.polaroid-card:nth-child(2) { transform: rotate(3deg) translateY(30px); }
+.polaroid-card:nth-child(3) { transform: rotate(-2deg) translateY(40px); }
+.polaroid-card:nth-child(4) { transform: rotate(6deg) translateY(25px); }
+.polaroid-card:nth-child(5) { transform: rotate(-4deg) translateY(15px); }
+
+/* The Pin */
+.polaroid-pin {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  margin-left: -10px;
+  width: 20px;
+  height: 35px;
+  background-color: #00d26a; /* Green pin from reference */
+  border-radius: 3px;
+  box-shadow: 2px 5px 8px rgba(0,0,0,0.3);
+  z-index: 2;
+}
+
+.polaroid-pin::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,0.7);
+}
+
+/* Image inside polaroid */
+.polaroid-img-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #222;
+}
+
+.polaroid-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text area inside polaroid */
+.polaroid-text {
+  margin-top: 16px;
+  text-align: left;
+}
+
+.polaroid-text h4 {
+  font-family: var(--font-title), sans-serif;
+  color: #111;
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin: 0 0 4px 0;
+}
+
+.polaroid-text p {
+  color: #555;
+  font-size: 0.75rem;
+  margin: 0;
+  line-height: 1.3;
+}
+
