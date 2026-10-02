@@ -1485,19 +1485,19 @@ textarea {
 @media (min-width: 992px) {
   .polaroid-gallery-inner {
     justify-content: center;
-    gap: 30px;
-    padding: 0 20px;
-    overflow: visible;
+    gap: 24px;
+    padding: 40px 20px 60px 20px; /* Add padding to prevent hover clipping */
+    overflow-x: auto;
   }
 }
 
 .polaroid-card {
   position: relative;
   background-color: #ffffff;
-  padding: 12px 12px 24px 12px;
+  padding: 10px 10px 20px 10px;
   border-radius: 12px;
   box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-  flex: 0 0 160px; /* Fixed width on mobile */
+  flex: 0 0 140px; /* Fixed width on mobile */
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
   cursor: pointer;
   text-decoration: none;
@@ -1507,7 +1507,8 @@ textarea {
 
 @media (min-width: 768px) {
   .polaroid-card {
-    flex: 0 0 200px;
+    flex: 0 0 160px; /* Scaled down slightly to fit all 6 cards on desktop without cutoff */
+    padding: 12px 12px 24px 12px;
   }
 }
 
