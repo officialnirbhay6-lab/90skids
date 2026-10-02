@@ -591,7 +591,104 @@ p {
   overflow: hidden;
 }
 
+/* Base style for marketing grid cards */
+.marketing-movie-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--card-strong);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: all 450ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
 
+.marketing-movie-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform 500ms ease, filter 500ms ease;
+  z-index: 1;
+}
+
+/* Bottom content inside cards */
+.card-content {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(7, 4, 5, 0.9) 0%, rgba(7, 4, 5, 0.5) 40%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  z-index: 2;
+  transition: padding 350ms ease, opacity 350ms ease;
+}
+
+.card-content h4 {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  font-weight: 850;
+  color: var(--ink);
+  margin-bottom: 0px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+  letter-spacing: 0.02em;
+}
+
+.card-desc {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.5;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(6px);
+  transition: max-height 350ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              opacity 350ms ease,
+              transform 350ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              margin-top 350ms ease;
+  margin-top: 0;
+}
+
+.marketing-movie-card:hover .card-desc {
+  max-height: 80px;
+  opacity: 0.85;
+  transform: translateY(0);
+  margin-top: 6px;
+}
+
+.card-visit-btn {
+  font-family: var(--font-title);
+  font-size: 0.72rem;
+  font-weight: 900;
+  color: #070405;
+  background: var(--gold);
+  padding: 6px 14px;
+  border-radius: 999px;
+  align-self: flex-start;
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity 350ms ease, transform 350ms ease, background 180ms ease;
+  box-shadow: 0 4px 10px rgba(244, 200, 106, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-top: 8px;
+}
+
+.card-visit-btn:hover {
+  background: #fff;
+  color: #070405;
+}
+
+.marketing-movie-card:hover .card-visit-btn {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition-delay: 80ms;
+}
 
 /* Marketing Campaign Grid (Movie style!) */
 .marketing-section-header {
